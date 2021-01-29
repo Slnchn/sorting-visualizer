@@ -1,0 +1,15 @@
+.array {
+  padding: 5vw 10vw;
+
+  list-style: none;
+
+  &__item {
+    display: block;
+
+    background-color: crimson;
+  }
+
+  &__item + &__item {
+    margin-top: 10px;
+  }
+}

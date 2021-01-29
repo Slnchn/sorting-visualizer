@@ -6,8 +6,10 @@
     "module": "commonjs",
     "paths": {
       "components/*": ["./src/components/*"],
+      "models/*": ["./src/models/*"],
       "store": ["./src/store/index.ts"],
-      "store/*": ["./src/store/*"]
+      "store/*": ["./src/store/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src"],
