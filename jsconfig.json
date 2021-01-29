@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "strict": true,
+    "baseUrl": ".",
+    "module": "commonjs",
+    "paths": {
+      "components/*": ["./src/components/*"],
+      "store": ["./src/store/index.ts"],
+      "store/*": ["./src/store/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
