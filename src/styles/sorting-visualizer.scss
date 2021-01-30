@@ -1,5 +1,18 @@
+@import './constants.scss';
+@import './mixins.scss';
+
+.sorting-visualizer {
+  flex-grow: 1;
+
+  overflow: hidden;
+}
+
 .array {
-  padding: 5vw 10vw;
+  @include column-content;
+
+  height: calc(100vh - 2 * #{$header-footer-height});
+
+  justify-content: space-between;
 
   list-style: none;
 
@@ -7,9 +20,5 @@
     display: block;
 
     background-color: crimson;
-  }
-
-  &__item + &__item {
-    margin-top: 10px;
   }
 }

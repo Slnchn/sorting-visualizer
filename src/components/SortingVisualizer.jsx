@@ -9,7 +9,12 @@ import {
   selectSortingTickInterval,
 } from 'store/selectors/app.selectors';
 
-import { bubbleSort, calculateArrayItemWidth, createRandomArray } from 'utils/array';
+import {
+  bubbleSort,
+  calculateArrayItemHeight,
+  calculateArrayItemWidth,
+  createRandomArray,
+} from 'utils/array';
 
 function SortingVisualizer() {
   const arrayEl = useRef(null);
@@ -21,6 +26,7 @@ function SortingVisualizer() {
   const sortingTickInterval = useSelector(selectSortingTickInterval);
 
   const sortIterator = useMemo(() => bubbleSort(array), [array]);
+  const itemHeight = useMemo(() => calculateArrayItemHeight(arraySize), [arraySize]);
 
   useEffect(() => {
     dispatch(setArray(createRandomArray(arraySize)));
@@ -49,15 +55,14 @@ function SortingVisualizer() {
           <li
             className="array__item"
             style={{
+              height: `${itemHeight}%`,
               width: `${calculateArrayItemWidth(
                 item.number,
                 getMaxNumber(array.map(({ number }) => number))
               )}%`,
             }}
             key={item.id}
-          >
-            {item.number}
-          </li>
+          />
         ))}
       </ul>
     </div>

@@ -1,14 +1,14 @@
 @import './mixins.scss';
 @import './constants.scss';
 
-.header {
+.footer {
   @include center-content;
 
   position: relative;
   height: $header-footer-height;
-  padding-top: 1vw;
+  padding-bottom: 1vw;
 
-  align-items: flex-start;
+  align-items: flex-end;
 
   &__title {
     text-transform: uppercase;

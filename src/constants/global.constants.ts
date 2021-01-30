@@ -1,0 +1,1 @@
+export const ONE_HUNDRED_PERCENTS = 100;
