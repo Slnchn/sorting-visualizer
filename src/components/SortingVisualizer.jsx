@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setArray } from 'store/action-creators/app.action-creators';
 import { selectArray, selectArraySize } from 'store/selectors/app.selectors';
 
-import { createRandomArray } from 'utils/array';
+import { bubbleSort, createRandomArray } from 'utils/array';
 
 function SortingVisualizer() {
   const dispatch = useDispatch();
@@ -12,9 +12,27 @@ function SortingVisualizer() {
   const array = useSelector(selectArray);
   const arraySize = useSelector(selectArraySize);
 
+  const sortIterator = useMemo(() => bubbleSort(array), [array]);
+
   useEffect(() => {
     dispatch(setArray(createRandomArray(arraySize)));
   }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const nextArray = sortIterator.next();
+
+      if (!nextArray.done) {
+        dispatch(setArray(nextArray.value));
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 250);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [sortIterator]);
 
   return (
     <div className="sorting-visualizer">
