@@ -1,12 +1,13 @@
 @import './constants.scss';
 
-$sidebar-width: 20vw;
+$sidebar-width: 30vw;
 
 .sidebar {
   position: absolute;
   right: -$sidebar-width;
   height: 100vh;
   width: $sidebar-width;
+  padding: 1vw 2vw;
 
   transition: transform $animation-time ease-in-out;
   background-color: #ffffff;

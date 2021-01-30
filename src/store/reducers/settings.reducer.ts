@@ -1,11 +1,11 @@
-import ESettingsActionTypes from 'store/action-types/settings.action-types';
+import ESettingsActionTypes from '../action-types/settings.action-types';
 import { TSettingsAction } from '../actions/settings.actions';
-import { settingsInitState, TSettingsState } from '../init-states/settings.init-state';
+import { settingsInitState, ISettingsState } from '../init-states/settings';
 
 export default (
-  state: TSettingsState = settingsInitState,
+  state: ISettingsState = settingsInitState,
   action: TSettingsAction
-): TSettingsState => {
+): ISettingsState => {
   switch (action.type) {
     case ESettingsActionTypes.TOGGLE_SIDEBAR: {
       return { ...state, isSidebarActive: !state.isSidebarActive };

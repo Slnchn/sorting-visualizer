@@ -7,4 +7,9 @@ export interface ISetArray {
   array: ISortNumber[];
 }
 
-export type TAppAction = ISetArray;
+export interface ISetSortingTickInterval {
+  type: EActionTypes.SET_SORTING_TICK_INTERVAL;
+  sortingTickInterval: number;
+}
+
+export type TAppAction = ISetArray | ISetSortingTickInterval;

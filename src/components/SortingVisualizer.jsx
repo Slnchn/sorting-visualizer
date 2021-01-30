@@ -2,8 +2,12 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setArray } from 'store/action-creators/app.action-creators';
-import { selectArray, selectArraySize } from 'store/selectors/app.selectors';
 import { getMaxNumber } from 'utils/';
+import {
+  selectArray,
+  selectArraySize,
+  selectSortingTickInterval,
+} from 'store/selectors/app.selectors';
 
 import { bubbleSort, calculateArrayItemWidth, createRandomArray } from 'utils/array';
 
@@ -14,6 +18,7 @@ function SortingVisualizer() {
 
   const array = useSelector(selectArray);
   const arraySize = useSelector(selectArraySize);
+  const sortingTickInterval = useSelector(selectSortingTickInterval);
 
   const sortIterator = useMemo(() => bubbleSort(array), [array]);
 
@@ -30,7 +35,7 @@ function SortingVisualizer() {
       } else {
         clearInterval(intervalId);
       }
-    }, 25);
+    }, sortingTickInterval);
 
     return () => {
       clearInterval(intervalId);

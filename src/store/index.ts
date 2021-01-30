@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, CombinedState } from 're
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { IAppState } from './init-states/app';
-import { TSettingsState } from './init-states/settings.init-state';
+import { ISettingsState } from './init-states/settings';
 
 // reducers
 import appReducer from './reducers/app.reducer';
@@ -19,7 +19,7 @@ const store = createStore(rootReducer, rootMiddleware);
 
 export type TStore = CombinedState<{
   appState: IAppState;
-  settingsState: TSettingsState;
+  settingsState: ISettingsState;
 }>;
 
 export { store };

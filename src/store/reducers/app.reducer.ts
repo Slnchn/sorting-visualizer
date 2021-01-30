@@ -7,6 +7,9 @@ export default (state: IAppState = appInitState, action: TAppAction): IAppState 
     case EActionTypes.SET_ARRAY: {
       return { ...state, array: action.array };
     }
+    case EActionTypes.SET_SORTING_TICK_INTERVAL: {
+      return { ...state, sortingTickInterval: action.sortingTickInterval };
+    }
     default: {
       return state;
     }
