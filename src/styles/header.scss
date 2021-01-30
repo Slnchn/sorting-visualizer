@@ -1,5 +1,6 @@
 @import './mixins.scss';
 @import './constants.scss';
+@import './animations.scss';
 
 .header {
   @include center-content;
@@ -12,5 +13,11 @@
 
   &__title {
     text-transform: uppercase;
+
+    &--blinking {
+      @extend .header__title;
+
+      animation: text-blinker 1.25s ease-in-out infinite;
+    }
   }
 }

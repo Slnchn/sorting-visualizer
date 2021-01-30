@@ -1,7 +1,11 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setArray } from 'store/action-creators/app.action-creators';
+import {
+  setArray,
+  setArraySortingCompleted,
+  setArraySortingInProgress,
+} from 'store/action-creators/app.action-creators';
 import { getMaxNumber } from 'utils/';
 import {
   selectArray,
@@ -35,13 +39,15 @@ function SortingVisualizer() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       const nextArray = sortIterator.next();
-
       if (!nextArray.done) {
         dispatch(setArray(nextArray.value));
       } else {
+        dispatch(setArraySortingCompleted());
         clearInterval(intervalId);
       }
     }, sortingTickInterval);
+
+    dispatch(setArraySortingInProgress());
 
     return () => {
       clearInterval(intervalId);

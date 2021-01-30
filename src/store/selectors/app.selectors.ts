@@ -8,3 +8,6 @@ export const selectArraySize = (store: TStore): number => store.appState.arraySi
 
 export const selectSortingTickInterval = (store: TStore): number =>
   store.appState.sortingTickInterval;
+
+export const selectIsSortingInProgress = (store: TStore): boolean =>
+  store.appState.sortingInProgress;

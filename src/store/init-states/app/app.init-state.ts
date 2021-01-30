@@ -6,4 +6,5 @@ export const appInitState: IAppState = {
   array: [],
   arraySize: 50,
   sortingTickInterval: SORTING_INTERVAL_TICK_MAX,
+  sortingInProgress: false,
 };

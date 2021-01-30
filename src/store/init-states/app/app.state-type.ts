@@ -4,4 +4,5 @@ export interface IAppState {
   array: ISortNumber[];
   arraySize: number;
   sortingTickInterval: number;
+  sortingInProgress: boolean;
 }

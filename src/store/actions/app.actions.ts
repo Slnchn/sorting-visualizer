@@ -12,4 +12,16 @@ export interface ISetSortingTickInterval {
   sortingTickInterval: number;
 }
 
-export type TAppAction = ISetArray | ISetSortingTickInterval;
+export interface ISetArraySortingInProgress {
+  type: EActionTypes.SET_ARRAY_SORTING_IN_PROGRESS;
+}
+
+export interface ISetArraySortingCompleted {
+  type: EActionTypes.SET_ARRAY_SORTING_COMPLETED;
+}
+
+export type TAppAction =
+  | ISetArray
+  | ISetSortingTickInterval
+  | ISetArraySortingInProgress
+  | ISetArraySortingCompleted;
