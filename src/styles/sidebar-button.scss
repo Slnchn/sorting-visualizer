@@ -1,0 +1,30 @@
+@import './constants.scss';
+
+.sidebar-button {
+  position: absolute;
+  left: 2vw;
+  padding: 5px;
+
+  height: 3vw;
+  width: 3vw;
+
+  cursor: pointer;
+  opacity: 0.75;
+  border: none;
+  border-radius: 100%;
+  transition: opacity $animation-time ease-in-out, transform $animation-time ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--active {
+    @extend .sidebar-button;
+
+    transform: rotate(90deg);
+  }
+}

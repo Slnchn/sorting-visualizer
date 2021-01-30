@@ -1,0 +1,25 @@
+@import './constants.scss';
+
+$sidebar-width: 20vw;
+
+.sidebar {
+  position: absolute;
+  right: -$sidebar-width;
+  height: 100vh;
+  width: $sidebar-width;
+
+  transition: transform $animation-time ease-in-out;
+  background-color: #ffffff;
+
+  &__title {
+    text-align: center;
+  }
+
+  &--active {
+    @extend .sidebar;
+
+    transform: translateX(-$sidebar-width);
+
+    box-shadow: 0 15px 15px #000000a0;
+  }
+}

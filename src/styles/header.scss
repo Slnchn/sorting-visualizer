@@ -3,6 +3,9 @@
 .header {
   @include center-content;
 
+  position: relative;
+  padding: 2vw 1vw;
+
   &__title {
     text-transform: uppercase;
   }
