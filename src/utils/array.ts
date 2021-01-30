@@ -2,13 +2,17 @@ import { v4 as uuid } from 'uuid';
 
 import { ISortNumber } from 'models/ISortNumber';
 
-import { between } from './index';
+import { generateNumberInRange } from './index';
 
 export function createRandomArray(size: number): ISortNumber[] {
   return new Array(size).fill(0).map(() => ({
     id: uuid(),
-    number: between(0, size),
+    number: generateNumberInRange(0, size),
   }));
+}
+
+export function calculateArrayItemWidth(arrayItem: number, maxArrayItem: number) {
+  return Math.floor(100 * (arrayItem / maxArrayItem));
 }
 
 export function* bubbleSort(array: ISortNumber[]): Generator<ISortNumber[]> {

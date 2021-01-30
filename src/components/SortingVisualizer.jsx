@@ -1,12 +1,15 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setArray } from 'store/action-creators/app.action-creators';
 import { selectArray, selectArraySize } from 'store/selectors/app.selectors';
+import { getMaxNumber } from 'utils/';
 
-import { bubbleSort, createRandomArray } from 'utils/array';
+import { bubbleSort, calculateArrayItemWidth, createRandomArray } from 'utils/array';
 
 function SortingVisualizer() {
+  const arrayEl = useRef(null);
+
   const dispatch = useDispatch();
 
   const array = useSelector(selectArray);
@@ -27,7 +30,7 @@ function SortingVisualizer() {
       } else {
         clearInterval(intervalId);
       }
-    }, 250);
+    }, 25);
 
     return () => {
       clearInterval(intervalId);
@@ -36,9 +39,18 @@ function SortingVisualizer() {
 
   return (
     <div className="sorting-visualizer">
-      <ul className="array">
+      <ul className="array" ref={arrayEl}>
         {array.map((item) => (
-          <li className="array__item" style={{ width: `${item.number}vw` }} key={item.id}>
+          <li
+            className="array__item"
+            style={{
+              width: `${calculateArrayItemWidth(
+                item.number,
+                getMaxNumber(array.map(({ number }) => number))
+              )}%`,
+            }}
+            key={item.id}
+          >
             {item.number}
           </li>
         ))}
