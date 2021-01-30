@@ -1,11 +1,12 @@
 import React from 'react';
 
+import Header from 'components/Header';
 import SortingVisualizer from 'components/SortingVisualizer';
 
 function App() {
   return (
     <>
-      <h1>hello warudo</h1>
+      <Header />
 
       <SortingVisualizer />
     </>

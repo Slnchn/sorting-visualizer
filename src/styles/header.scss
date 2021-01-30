@@ -1,0 +1,9 @@
+@import './mixins.scss';
+
+.header {
+  @include center-content;
+
+  &__title {
+    text-transform: uppercase;
+  }
+}
