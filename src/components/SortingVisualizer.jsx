@@ -16,8 +16,13 @@ import {
 } from 'store/selectors/app.selectors';
 
 import { getMaxNumber } from 'utils';
-import { calculateArrayItemHeight, calculateArrayItemWidth, createRandomArray } from 'utils/array';
 import { bubbleSort } from 'utils/sortings';
+import {
+  calculateArrayItemHeight,
+  calculateArrayItemWidth,
+  createRandomArray,
+  getArrayItemClassName,
+} from 'utils/array';
 
 function SortingVisualizer() {
   const arrayEl = useRef(null);
@@ -59,7 +64,7 @@ function SortingVisualizer() {
       <ul className="array" ref={arrayEl}>
         {array.map((item) => (
           <li
-            className="array__item"
+            className={getArrayItemClassName(item)}
             style={{
               height: `${itemHeight}%`,
               width: `${calculateArrayItemWidth(

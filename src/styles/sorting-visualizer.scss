@@ -1,5 +1,6 @@
-@import './constants.scss';
-@import './mixins.scss';
+@import './shared/constants.scss';
+@import './shared/mixins.scss';
+@import './shared/colors.scss';
 
 .sorting-visualizer {
   flex-grow: 1;
@@ -19,6 +20,18 @@
   &__item {
     display: block;
 
-    background-color: crimson;
+    background-color: $blue-world;
+
+    &--comparing {
+      @extend .array__item;
+
+      background-color: $evolution-joyner;
+    }
+
+    &--swapping {
+      @extend .array__item;
+
+      background-color: $red-hot-chili-peppers;
+    }
   }
 }

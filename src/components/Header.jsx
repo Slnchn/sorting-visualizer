@@ -10,10 +10,12 @@ function Header() {
 
   return (
     <header className="header">
-      <SidebarButton />
-      <h1 className={`header__title${isSortingInProgress ? '--blinking' : ''}`}>
-        Sorting Visualizer
-      </h1>
+      <div className="header-title-wrapper">
+        <SidebarButton />
+        <h1 className={`header__title${isSortingInProgress ? '--blinking' : ''}`}>
+          Sorting Visualizer
+        </h1>
+      </div>
     </header>
   );
 }

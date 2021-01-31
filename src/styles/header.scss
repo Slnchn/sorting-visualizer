@@ -1,23 +1,34 @@
-@import './mixins.scss';
-@import './constants.scss';
-@import './animations.scss';
+@import './shared/mixins.scss';
+@import './shared/constants.scss';
+@import './shared/animations.scss';
+@import './shared/colors.scss';
 
 .header {
-  @include center-content;
+  $self: &;
 
   position: relative;
   height: $header-footer-height;
-  padding-top: 1vw;
 
   align-items: flex-start;
 
-  &__title {
-    text-transform: uppercase;
+  .header-title-wrapper {
+    @include center-content;
 
-    &--blinking {
-      @extend .header__title;
+    padding: 1vw 0;
+    width: 100%;
 
-      animation: text-blinker 1.25s ease-in-out infinite;
+    background-color: $silent-night;
+
+    #{$self}__title {
+      text-transform: uppercase;
+
+      color: $path-of-white;
+
+      &--blinking {
+        @extend .header__title;
+
+        animation: text-blinker 1.25s ease-in-out infinite;
+      }
     }
   }
 }
