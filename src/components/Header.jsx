@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { selectIsSortingInProgress } from 'store/selectors/app.selectors';
 
-import SidebarButton from './SidebarButton';
+import SidebarButton from './header-controls/SidebarButton';
 
 function Header() {
   const isSortingInProgress = useSelector(selectIsSortingInProgress);
