@@ -5,35 +5,35 @@ import {
   setArray,
   setArraySortingCompleted,
   setArraySortingInProgress,
+  setInitialArray,
 } from 'store/action-creators/app.action-creators';
-import { getMaxNumber } from 'utils/';
+
 import {
   selectArray,
   selectArraySize,
+  selectInitialArray,
   selectSortingTickInterval,
 } from 'store/selectors/app.selectors';
 
-import {
-  bubbleSort,
-  calculateArrayItemHeight,
-  calculateArrayItemWidth,
-  createRandomArray,
-} from 'utils/array';
+import { getMaxNumber } from 'utils';
+import { calculateArrayItemHeight, calculateArrayItemWidth, createRandomArray } from 'utils/array';
+import { bubbleSort } from 'utils/sortings';
 
 function SortingVisualizer() {
   const arrayEl = useRef(null);
 
   const dispatch = useDispatch();
 
+  const initialArray = useSelector(selectInitialArray);
   const array = useSelector(selectArray);
   const arraySize = useSelector(selectArraySize);
   const sortingTickInterval = useSelector(selectSortingTickInterval);
 
-  const sortIterator = useMemo(() => bubbleSort(array), [array]);
+  const sortIterator = useMemo(() => bubbleSort(array), [initialArray]);
   const itemHeight = useMemo(() => calculateArrayItemHeight(arraySize), [arraySize]);
 
   useEffect(() => {
-    dispatch(setArray(createRandomArray(arraySize)));
+    dispatch(setInitialArray(createRandomArray(arraySize)));
   }, []);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function SortingVisualizer() {
     return () => {
       clearInterval(intervalId);
     };
-  }, [sortIterator]);
+  });
 
   return (
     <div className="sorting-visualizer">

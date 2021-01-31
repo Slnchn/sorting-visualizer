@@ -5,8 +5,14 @@ import {
   ISetArray,
   ISetArraySortingCompleted,
   ISetArraySortingInProgress,
+  ISetInitialArray,
   ISetSortingTickInterval,
 } from '../actions/app.actions';
+
+export const setInitialArray = (initialArray: ISortNumber[]): ISetInitialArray => ({
+  type: EActionTypes.SET_INITIAL_ARRAY,
+  initialArray,
+});
 
 export const setArray = (array: ISortNumber[]): ISetArray => ({
   type: EActionTypes.SET_ARRAY,

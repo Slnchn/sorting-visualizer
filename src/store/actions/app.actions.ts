@@ -2,6 +2,11 @@ import { ISortNumber } from 'models/ISortNumber';
 
 import EActionTypes from '../action-types/app.action-types';
 
+export interface ISetInitialArray {
+  type: EActionTypes.SET_INITIAL_ARRAY;
+  initialArray: ISortNumber[];
+}
+
 export interface ISetArray {
   type: EActionTypes.SET_ARRAY;
   array: ISortNumber[];
@@ -21,6 +26,7 @@ export interface ISetArraySortingCompleted {
 }
 
 export type TAppAction =
+  | ISetInitialArray
   | ISetArray
   | ISetSortingTickInterval
   | ISetArraySortingInProgress
