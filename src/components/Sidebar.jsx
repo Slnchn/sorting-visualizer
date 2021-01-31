@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectIsSidebarActive } from 'store/selectors/settings.selectors';
 import { selectSortingTickInterval } from 'store/selectors/app.selectors';
+import { setSortingTickInterval } from 'store/action-creators/app.action-creators';
 
 import { SORTING_INTERVAL_TICK_MAX, SORTING_INTERVAL_TICK_MIN } from 'constants/app.constants';
-import { setSortingTickInterval } from 'store/action-creators/app.action-creators';
+
+import ResetArrayBtn from './sidebar-controls/ResetArrayBtn';
 
 function Sidebar() {
   const dispatch = useDispatch();
@@ -13,7 +15,7 @@ function Sidebar() {
   const isSidebarActive = useSelector(selectIsSidebarActive);
   const sortingTickInterval = useSelector(selectSortingTickInterval);
 
-  function onSortingIntervalTickChange(event) {
+  function changeSortingIntervalTick(event) {
     const {
       target: { value },
     } = event;
@@ -34,9 +36,11 @@ function Sidebar() {
           value={sortingTickInterval}
           min={SORTING_INTERVAL_TICK_MIN}
           max={SORTING_INTERVAL_TICK_MAX}
-          onChange={onSortingIntervalTickChange}
+          onChange={changeSortingIntervalTick}
         />
       </label>
+
+      <ResetArrayBtn />
     </section>
   );
 }
