@@ -1,3 +1,4 @@
+import { ESortingTypes } from 'constants/app.constants';
 import { ISortNumber } from 'models/ISortNumber';
 
 export interface IAppState {
@@ -6,4 +7,5 @@ export interface IAppState {
   arraySize: number;
   sortingTickInterval: number;
   sortingInProgress: boolean;
+  currentSortingType: ESortingTypes;
 }

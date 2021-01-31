@@ -1,3 +1,4 @@
+import { ESortingTypes } from 'models/ESortingTypes';
 import { ISortNumber } from 'models/ISortNumber';
 
 import EActionTypes from '../action-types/app.action-types';
@@ -25,9 +26,15 @@ export interface ISetArraySortingCompleted {
   type: EActionTypes.SET_ARRAY_SORTING_COMPLETED;
 }
 
+export interface ISetSortingType {
+  type: EActionTypes.SET_SORTING_TYPE;
+  sortingType: ESortingTypes;
+}
+
 export type TAppAction =
   | ISetInitialArray
   | ISetArray
   | ISetSortingTickInterval
   | ISetArraySortingInProgress
-  | ISetArraySortingCompleted;
+  | ISetArraySortingCompleted
+  | ISetSortingType;

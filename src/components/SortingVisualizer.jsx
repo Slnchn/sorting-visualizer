@@ -11,18 +11,19 @@ import {
 import {
   selectArray,
   selectArraySize,
+  selectCurrentSortingType,
   selectInitialArray,
   selectSortingTickInterval,
 } from 'store/selectors/app.selectors';
 
 import { getMaxNumber } from 'utils';
-import { bubbleSort } from 'utils/sortings';
 import {
   calculateArrayItemHeight,
   calculateArrayItemWidth,
   createRandomArray,
   getArrayItemClassName,
 } from 'utils/array';
+import { getSorting } from 'utils/sortings-map';
 
 function SortingVisualizer() {
   const arrayEl = useRef(null);
@@ -33,8 +34,10 @@ function SortingVisualizer() {
   const array = useSelector(selectArray);
   const arraySize = useSelector(selectArraySize);
   const sortingTickInterval = useSelector(selectSortingTickInterval);
+  const currentSortingType = useSelector(selectCurrentSortingType);
 
-  const sortIterator = useMemo(() => bubbleSort(array), [initialArray]);
+  const sortingFunction = useMemo(() => getSorting(currentSortingType), [currentSortingType]);
+  const sortingIterator = useMemo(() => sortingFunction(array), [initialArray]);
   const itemHeight = useMemo(() => calculateArrayItemHeight(arraySize), [arraySize]);
 
   useEffect(() => {
@@ -43,7 +46,7 @@ function SortingVisualizer() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const nextArray = sortIterator.next();
+      const nextArray = sortingIterator.next();
       if (!nextArray.done) {
         dispatch(setArray(nextArray.value));
       } else {

@@ -2,7 +2,15 @@ import { ISortNumber } from 'models/ISortNumber';
 
 import { resetArrayItemsParams } from './array';
 
-export function* bubbleSort(array: ISortNumber[]): Generator<ISortNumber[]> {
+export function* stubSorting(array: ISortNumber[]): Generator<ISortNumber[]> {
+  for (let i = 0; i < array.length; i += 1) {
+    yield array;
+  }
+
+  return array;
+}
+
+export function* bubbleSorting(array: ISortNumber[]): Generator<ISortNumber[]> {
   let sorted = false;
   let arrayCopy = [...array];
 

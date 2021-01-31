@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import { selectIsSidebarActive } from 'store/selectors/settings.selectors';
 
 import ResetArrayBtn from './sidebar-controls/ResetArrayBtn';
-import SortingIntervalTickInput from './sidebar-controls/SortingIntervalTickInput';
+import SortingTypePicker from './sidebar-controls/SortingTypePicker';
+import SortingIntervalTickPicker from './sidebar-controls/SortingIntervalTickPicker';
 
 function Sidebar() {
   const isSidebarActive = useSelector(selectIsSidebarActive);
@@ -13,7 +14,9 @@ function Sidebar() {
     <section className={`sidebar${isSidebarActive ? '--active' : ''}`}>
       <h2 className="sidebar__title">Sorting settings</h2>
 
-      <SortingIntervalTickInput />
+      <SortingIntervalTickPicker />
+
+      <SortingTypePicker />
 
       <ResetArrayBtn />
     </section>

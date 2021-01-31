@@ -1,3 +1,4 @@
+import { ESortingTypes } from 'constants/app.constants';
 import { ISortNumber } from 'models/ISortNumber';
 
 import { TStore } from '../index';
@@ -13,3 +14,6 @@ export const selectSortingTickInterval = (store: TStore): number =>
 
 export const selectIsSortingInProgress = (store: TStore): boolean =>
   store.appState.sortingInProgress;
+
+export const selectCurrentSortingType = (store: TStore): ESortingTypes =>
+  store.appState.currentSortingType;

@@ -6,7 +6,7 @@ import { setSortingTickInterval } from 'store/action-creators/app.action-creator
 
 import { SORTING_INTERVAL_TICK_MAX, SORTING_INTERVAL_TICK_MIN } from 'constants/app.constants';
 
-function SortingIntervalTickInput() {
+function SortingIntervalTickPicker() {
   const dispatch = useDispatch();
 
   const sortingTickInterval = useSelector(selectSortingTickInterval);
@@ -35,4 +35,4 @@ function SortingIntervalTickInput() {
   );
 }
 
-export default SortingIntervalTickInput;
+export default SortingIntervalTickPicker;

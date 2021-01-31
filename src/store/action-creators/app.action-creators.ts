@@ -1,3 +1,4 @@
+import { ESortingTypes } from 'models/ESortingTypes';
 import { ISortNumber } from 'models/ISortNumber';
 
 import EActionTypes from '../action-types/app.action-types';
@@ -7,6 +8,7 @@ import {
   ISetArraySortingInProgress,
   ISetInitialArray,
   ISetSortingTickInterval,
+  ISetSortingType,
 } from '../actions/app.actions';
 
 export const setInitialArray = (initialArray: ISortNumber[]): ISetInitialArray => ({
@@ -30,4 +32,9 @@ export const setArraySortingInProgress = (): ISetArraySortingInProgress => ({
 
 export const setArraySortingCompleted = (): ISetArraySortingCompleted => ({
   type: EActionTypes.SET_ARRAY_SORTING_COMPLETED,
+});
+
+export const setSortingType = (sortingType: ESortingTypes): ISetSortingType => ({
+  type: EActionTypes.SET_SORTING_TYPE,
+  sortingType,
 });
