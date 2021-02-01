@@ -6,7 +6,7 @@ import { selectArraySize } from 'store/selectors/app.selectors';
 
 import { createRandomArray } from 'utils/array';
 
-function ResetArrayBtn() {
+function ResetArrayButton() {
   const dispatch = useDispatch();
 
   const arraySize = useSelector(selectArraySize);
@@ -16,10 +16,10 @@ function ResetArrayBtn() {
   }
 
   return (
-    <button type="button" onClick={resetArray}>
+    <button type="button" className="sidebar__button" onClick={resetArray}>
       Reset array
     </button>
   );
 }
 
-export default ResetArrayBtn;
+export default ResetArrayButton;

@@ -4,27 +4,31 @@
 .sidebar-button {
   position: absolute;
   left: 2vw;
-  padding: 5px;
+  padding: 1vw;
 
-  height: 2vw;
-  width: 2vw;
+  height: 3vw;
+  width: 3vw;
 
-  cursor: pointer;
   opacity: 0.75;
-  background: none;
   background: no-repeat center/55% url(~assets/menu.svg);
-  background-position: center;
   background-color: $path-of-white;
+  box-shadow: -5px -5px 20px $path-of-white, 5px 5px 20px $greirat;
   border: none;
   border-radius: 100%;
-  transition: opacity $animation-time ease-in-out, transform $animation-time ease-in-out;
+  transition: all $animation-time ease-in-out;
+  cursor: pointer;
 
   &:hover {
     opacity: 1;
+    box-shadow: -1px -1px 10px rgba($path-of-white, 0.4), 1px 1px 10px $greirat;
   }
 
   &:focus {
     outline: none;
+  }
+
+  &:active {
+    box-shadow: inset 1px 1px 2px $greirat, inset -1px -1px 2px $path-of-white;
   }
 
   &--active {

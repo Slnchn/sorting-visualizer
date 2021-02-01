@@ -1,0 +1,52 @@
+@import './shared/colors.scss';
+
+.sorting-button-wrapper {
+  padding: 0.85vw;
+  padding-top: 0;
+
+  background-color: $path-of-white;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  box-shadow: 1px 15px 16px 1px $greirat, inset -1px -1px 2px $path-of-white;
+
+  .sorting-button {
+    height: 3vw;
+    width: 3vw;
+
+    background-color: $path-of-white;
+    background-repeat: no-repeat;
+    box-shadow: -5px -5px 20px $path-of-white, 5px 5px 20px $greirat;
+    border: none;
+    border-radius: 100%;
+    transition: background-color $animation-time, box-shadow $animation-time ease-in-out;
+    cursor: pointer;
+
+    &--start {
+      @extend .sorting-button;
+
+      background-image: url(~assets/start.svg);
+      background-position: 59% 46%;
+      background-size: 50%;
+    }
+
+    &--pause {
+      @extend .sorting-button;
+
+      background-image: url(~assets/pause.svg);
+      background-position: 51% 42%;
+      background-size: 70%;
+    }
+
+    &:hover {
+      box-shadow: -1px -1px 10px rgba($greirat, 0.3), 1px 1px 10px $greirat;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: inset 1px 1px 2px $greirat, inset -1px -1px 2px $path-of-white;
+    }
+  }
+}

@@ -20,8 +20,8 @@ function SortingIntervalTickPicker() {
   }
 
   return (
-    <label htmlFor="sorting-tick-interval-control">
-      Sorting tick interval:
+    <label className="sorting-interval-tick-picker" htmlFor="sorting-tick-interval-control">
+      <span className="sorting-interval-tick-picker__title">Sorting tick interval:</span>
       <input
         type="range"
         name="sorting-tick-interval-control"

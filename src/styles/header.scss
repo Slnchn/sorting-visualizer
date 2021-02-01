@@ -17,12 +17,13 @@
     padding: 1vw 0;
     width: 100%;
 
-    background-color: $silent-night;
+    background-color: $path-of-white;
+    box-shadow: 1px 1px 15px $greirat, inset -1px -1px 2px $path-of-white;
 
     #{$self}__title {
       text-transform: uppercase;
 
-      color: $path-of-white;
+      color: $dark-waters;
 
       &--blinking {
         @extend .header__title;

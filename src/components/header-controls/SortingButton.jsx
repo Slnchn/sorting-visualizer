@@ -7,7 +7,7 @@ import {
 } from 'store/action-creators/app.action-creators';
 import { selectIsSortingInProgress } from 'store/selectors/app.selectors';
 
-function StartSortingButton() {
+function SortingButton() {
   const dispatch = useDispatch();
 
   const isSortingInProgress = useSelector(selectIsSortingInProgress);
@@ -20,19 +20,17 @@ function StartSortingButton() {
     dispatch(setArraySortingCompleted());
   }
 
-  if (isSortingInProgress) {
-    return (
-      <button type="button" onClick={stopSorting}>
-        Stop Sorting
-      </button>
-    );
-  }
-
   return (
-    <button type="button" onClick={startSorting}>
-      Start Sorting
-    </button>
+    <div className="sorting-button-wrapper">
+      {isSortingInProgress ? (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        <button type="button" className="sorting-button--pause" onClick={stopSorting} />
+      ) : (
+        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+        <button type="button" className="sorting-button--start" onClick={startSorting} />
+      )}
+    </div>
   );
 }
 
-export default StartSortingButton;
+export default SortingButton;

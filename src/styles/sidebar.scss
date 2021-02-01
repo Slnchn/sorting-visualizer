@@ -1,4 +1,6 @@
 @import './shared/constants.scss';
+@import './shared/colors.scss';
+@import './shared/mixins.scss';
 
 $sidebar-width: 20vw;
 
@@ -9,18 +11,93 @@ $sidebar-width: 20vw;
   width: $sidebar-width;
   padding: 1vw 2vw;
 
-  transition: transform $animation-time ease-in-out;
-  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(4, auto) 1fr;
+  row-gap: 1.5vw;
 
-  &__title {
-    text-align: center;
-  }
+  text-shadow: 1px 1px 1px $path-of-white;
+
+  transition: transform $animation-time ease-in-out;
+  background-color: $path-of-white;
 
   &--active {
     @extend .sidebar;
 
     transform: translateX(-$sidebar-width);
 
-    box-shadow: 0 15px 15px #000000a0;
+    box-shadow: 0 15px 15px black;
+  }
+
+  &__title {
+    grid-column: 1 / span 3;
+    grid-row: 1 / 1;
+
+    color: $silent-night;
+    font-size: 1.5vw;
+    font-weight: bolder;
+
+    text-align: center;
+  }
+
+  .sorting-interval-tick-picker {
+    @include column-content;
+
+    padding-left: 1vw;
+
+    grid-column: 1 / span 3;
+    grid-row: 2 / 2;
+
+    border-left: 1px solid $greirat;
+
+    &__title {
+      font-weight: bolder;
+    }
+  }
+
+  .sorting-type-picker {
+    @include column-content;
+
+    padding-left: 1vw;
+
+    grid-column: 1 / span 3;
+    grid-row: 3 / 3;
+
+    border-left: 1px solid $greirat;
+
+    &__title {
+      font-weight: bolder;
+    }
+  }
+
+  &__button {
+    padding: 1vw 1.5vw;
+
+    grid-column: 1 / span 3;
+    grid-row: 4 / 4;
+
+    color: $red-hot-chili-peppers;
+    font-size: 1vw;
+    font-weight: bolder;
+    text-shadow: -5px -5px 20px $path-of-white;
+    text-transform: uppercase;
+
+    border: none;
+    border-radius: 5vw;
+    transition: all 0.2s ease-in-out;
+    box-shadow: -5px -5px 20px $path-of-white, 5px 5px 20px $greirat;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: -2px -2px 5px $path-of-white, 2px 2px 5px $greirat;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      box-shadow: inset 1px 1px 2px $greirat, inset -1px -1px 2px $path-of-white;
+    }
   }
 }

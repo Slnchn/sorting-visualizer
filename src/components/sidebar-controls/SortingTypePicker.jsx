@@ -19,8 +19,8 @@ function SortingTypePicker() {
   }
 
   return (
-    <label htmlFor="sorting-type-picker">
-      Sorting type picker:
+    <label className="sorting-type-picker" htmlFor="sorting-type-picker">
+      <span className="sorting-type-picker__title">Sorting type picker:</span>
       <select
         name="sorting-type-picker"
         id="sorting-type-picker"
