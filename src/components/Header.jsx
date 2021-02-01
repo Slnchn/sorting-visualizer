@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectIsSortingInProgress } from 'store/selectors/app.selectors';
 
 import SidebarButton from './header-controls/SidebarButton';
+import StartSortButton from './header-controls/StartSortButton';
 
 function Header() {
   const isSortingInProgress = useSelector(selectIsSortingInProgress);
@@ -16,6 +17,8 @@ function Header() {
           Sorting Visualizer
         </h1>
       </div>
+
+      <StartSortButton />
     </header>
   );
 }

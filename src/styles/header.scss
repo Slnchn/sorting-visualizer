@@ -4,12 +4,12 @@
 @import './shared/colors.scss';
 
 .header {
+  @include center-column-content;
+
   $self: &;
 
   position: relative;
   height: $header-footer-height;
-
-  align-items: flex-start;
 
   .header-title-wrapper {
     @include center-content;

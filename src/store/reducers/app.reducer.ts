@@ -17,7 +17,7 @@ export default (state: IAppState = appInitState, action: TAppAction): IAppState 
       return { ...state, sortingInProgress: true };
     }
     case EActionTypes.SET_ARRAY_SORTING_COMPLETED: {
-      return { ...state, sortingInProgress: false };
+      return { ...state, sortingInProgress: false, initialArray: state.array };
     }
     case EActionTypes.SET_SORTING_TYPE: {
       return { ...state, currentSortingType: action.sortingType };
