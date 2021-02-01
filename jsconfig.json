@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "module": "commonjs",
     "paths": {
+      "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
       "constants/*": ["./src/constants/*"],
       "models/*": ["./src/models/*"],

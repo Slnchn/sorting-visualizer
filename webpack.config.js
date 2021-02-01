@@ -11,6 +11,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx'],
     alias: {
+      assets: path.resolve(__dirname, './src/assets'),
       components: path.resolve(__dirname, './src/components'),
       constants: path.resolve(__dirname, './src/constants'),
       models: path.resolve(__dirname, './src/models'),
@@ -21,6 +22,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist'),
     filename: '[name].bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]',
     publicPath: '/',
   },
   module: {
@@ -31,6 +33,7 @@ module.exports = {
         exclude: [/node_modules/],
       },
       { test: /\.(sc|sa|c)ss$/, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] },
+      { test: /\.(png|svg|jpg|jpeg|gif)$/i, type: 'asset/resource' },
     ],
   },
   plugins: [
