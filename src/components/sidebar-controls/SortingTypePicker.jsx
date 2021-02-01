@@ -11,7 +11,9 @@ function SortingTypePicker() {
   const currentSortingType = useSelector(selectCurrentSortingType);
 
   function changeSortingType(event) {
-    const { target: value } = event;
+    const {
+      target: { value },
+    } = event;
 
     dispatch(setSortingType(value));
   }

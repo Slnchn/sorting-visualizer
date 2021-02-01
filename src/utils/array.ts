@@ -9,7 +9,7 @@ import { generateNumberInRange } from './index';
 export function createRandomArray(size: number): ISortNumber[] {
   return new Array(size).fill(0).map(() => ({
     id: uuid(),
-    number: generateNumberInRange(0, size),
+    number: generateNumberInRange(1, size),
     isComparing: false,
     isSwapping: false,
   }));
